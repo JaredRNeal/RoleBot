@@ -1,0 +1,58 @@
+bot:
+  commands_require_mention: false
+  commands_level_getter: commands.command_level_getter
+  commands_prefix: '!'
+  plugins:
+    - commands.role
+    - commands.remove_non_commands
+
+  role:
+    roles:
+      Afrikkans: 347513625918832640
+      Arabic: 347513652301004800
+      Basque: 347513672568012801
+      Bosnian: 347513706395205633
+      Brazillian Portuguese: 347514588620914698
+      Bulgarian: 347513723511898115
+      Catalan: 347513742227144704
+      Chinese Simplified: 347513763731341312
+      Chinese Traditional: 347513802452893697
+      Croatian: 347513835814649858
+      Czech: 347513852713238539
+      Danish: 347513867959795722
+      Dutch: 347513904311566348
+      Esperanto: 347513927048888321
+      Estonian: 347513960129626112
+      Finnish: 347513996057903104
+      French: 347514018858008606
+      Galician: 347514039422681089
+      German: 347514057017786380
+      Greek: 347514075393294337
+      Hebrew: 347514088286453762
+      Hungarian: 347514111791464450
+      Icelandic: 347514131705888788
+      Indonesian: 347514149191942144
+      Italian: 347514170477903882
+      Japanese: 347514185594175490
+      Korean: 347514199712202772
+      Latvian: 347514220029542411
+      Lithuanian: 347514241428881408
+      Macedonian: 347514261574123529
+      Norwegian: 347514279211040768
+      Pirate English: 347514297305530368
+      Polish: 347514317719207938
+      Portuguese: 347514334609670154
+      Romanian: 347514351307063296
+      Russian: 347514613459582986
+      Serbian (Cyrillic): 347514371616014346
+      Serbian (Latin): 347514395997372428
+      Slovak: 347514419330285571
+      Slovenian: 347514434840690689
+      Spanish: 47514452444315648
+      Swedish: 347514470815498262
+      Tagalog: 347514489337544704
+      Thai: 347514506953490432
+      Turkish: 347514522766147594
+      Ukrainian: 347514545884889088
+      Vietnamese: 347514570308452353
+      translator: 388096315868839946
