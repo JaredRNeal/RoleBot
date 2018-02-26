@@ -52,17 +52,17 @@ class roleBotConfig(Config):
         'ukrainian': 347514545884889088,
         'vietnamese': 347514570308452353,
         'translator': 388100600078008323
-}
+        }
 
     adminRoles = {
         'Discord Employee': 347520428475940865,
         'MegaMod': 347520381445341184,
         'Channel Mod': 347832927536807936,
         'Proofreader': 385468512950550539
-}
+        }
 
     adminChannels = {
         'MegaMod Chat': 388089942502539264,
-        'Channel-Mod Chat': 388071158366339092
-
-}
+        'Channel-Mod Chat': 388071158366339092,
+        'role_Bot_Log': 417761117712941056
+        }

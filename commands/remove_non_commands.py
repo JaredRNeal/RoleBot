@@ -10,7 +10,7 @@ UNAUTHORIZED_MSG = "{}, this channel is for bot-commands only."
 UH_OH_WTF = "Some unknown error has occured."
 BotIDNum = 380451786797875200
 
-functions = ['role ', 'rolelist', 'translator ']
+functions = ['role ', 'rolelist', 'translator ', 'test']
 
 class noFunAllowed(Plugin):
     @Plugin.listen('MessageCreate')

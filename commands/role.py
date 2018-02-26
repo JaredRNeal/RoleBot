@@ -47,10 +47,22 @@ class RolePlugin(Plugin):
             event.member.remove_role(Role)
             event.msg.reply(MSG_ROLE_REMOVED.format(event.author.mention, args.role)).after(10).delete()
             event.msg.delete()
+            message_to_announce = ("**{}#{}** ({}) removed the role `{}` from themself.").format(event.author.username, event.author.discriminator, event.author.id, args.role)
+            self.bot.client.api.channels_messages_create(roleBotConfig.adminChannels['role_Bot_Log'], message_to_announce)
         else:
             event.member.add_role(Role)
             event.msg.reply(MSG_ROLE_ADDED.format(event.author.mention, args.role)).after(10).delete()
             event.msg.delete()
+            message_to_announce = ("**{}#{}** ({}) gave themself the role `{}`.").format(event.author.username, event.author.discriminator, event.author.id, args.role)
+            self.bot.client.api.channels_messages_create(roleBotConfig.adminChannels['role_Bot_Log'], message_to_announce)
+
+#    @Plugin.command('test')
+#    def testing(self, event):
+#        message_to_announce = ("**{}#{}** ({}) did a test.").format(event.author.username, event.author.discriminator, event.author.id)
+#        self.bot.client.api.channels_messages_create(roleBotConfig.adminChannels['role_Bot_Log'], message_to_announce)
+#        event.msg.reply("Test!").after(10).delete()
+#        event.msg.after(10).delete()
+
 
     @Plugin.command('rolelist')
     def rolelist(self, event):
@@ -66,8 +78,9 @@ class RolePlugin(Plugin):
             if ex.code == 50007:  # invlid message send user
                 event.msg.reply(MSG_CANNOT_DM.format(event.author.mention)).after(10).delete()
             else:
-                event.msg.reply('There was a disturbance in the force').after(10).delete()
-
+                event.msg.reply('There was a disturbance in the force. Please contact a mod.').after(10).delete()
+        message_to_announce = ("**{}#{}** ({}) used the command `!rolelist`").format(event.author.username, event.author.discriminator, event.author.id)
+        self.bot.client.api.channels_messages_create(roleBotConfig.adminChannels['role_Bot_Log'], message_to_announce)
         event.msg.after(10).delete()
 
     @Plugin.command('translator', parser=True)
@@ -76,7 +89,6 @@ class RolePlugin(Plugin):
         guildID = 347510678858498050
         Role = roleBotConfig.roles['translator']
 
-        print(args.userID)
         #verify that the user has the correct ranks to be using this command
         if not any(role in roleBotConfig.adminRoles.values() for role in event.member.roles):
             event.msg.after(10).delete()
@@ -108,7 +120,11 @@ class RolePlugin(Plugin):
             self.bot.client.api.guilds_members_roles_remove(guildID, args.userID, Role)
             event.msg.reply(TRANSLATOR_ROLE_REMOVE.format(args.userID)).after(10).delete()
             event.msg.delete()
+            message_to_announce = ("**{}#{}** ({}) removed the Translator role from {}").format(event.author.username, event.author.discriminator, event.author.id, args.userID)
+            self.bot.client.api.channels_messages_create(roleBotConfig.adminChannels['role_Bot_Log'], message_to_announce)
         else:
             self.bot.client.api.guilds_members_roles_add(guildID, args.userID, Role)
             event.msg.reply(TRANSLATOR_ROLE_ADDED.format(args.userID)).after(10).delete()
             event.msg.delete()
+            message_to_announce = ("**{}#{}** ({}) added the Translator role to {}").format(event.author.username, event.author.discriminator, event.author.id, args.userID)
+            self.bot.client.api.channels_messages_create(roleBotConfig.adminChannels['role_Bot_Log'], message_to_announce)
